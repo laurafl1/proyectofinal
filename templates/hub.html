@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} Hub {% endblock %}
+
+{% block content %}
+<head>
+    <title> Hubs </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="{{url_for('static', filename='../static/styles/tablas.css') }}" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+            <li class="dropdown">
+              <a class="dropbtn">Dispositivos en stock</a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+                <a href="{{ url_for('switches.verSwitches') }}">Switches</a>
+                <a href="{{ url_for('hubs.verHubs') }}">Hubs</a>
+                <a href="{{ url_for('fortinets.verFortinets') }}">Fortinets</a>
+              </div>
+            </li>
+            <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+          </ul>
+    </nav>
+    <table border="1" style="width: 100%;">
+        <tr>
+            <td class="columna"> Id </td>
+            <td class="columna"> Nombre </td>
+            <td class="columna"> Voltaje de entrada </td>
+            <td class="columna"> Soporte VLAN </td>
+            <td class="columna"> Puertos </td>
+            <td class="columna"> Algoritmos de seguridad soportados </td>
+            <td class="columna"> Estándares de red </td>
+            <td class="columna"> Color del producto </td>
+            <td class="columna"> Precio </td>
+        </tr>
+        {% for hub in hubs %}
+
+        <tr>
+            <td> {{hub.Id}}</td>
+            <td> {{hub.Nombre}}</td>
+            <td> {{hub.Voltaje_de_entrada}}</td>
+            <td> {{hub.Soporte_VLAN}}</td>
+            <td> {{hub.Puertos}}</td>
+            <td> {{hub.Algoritmos_de_seguridad_soportados}}</td>
+            <td> {{hub.Estándares_de_red}}</td>
+            <td> {{hub.Color_del_producto}}</td>
+            <td> {{hub.Precio}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+<br/>
+</body>
+
+{% endblock %}

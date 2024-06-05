@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<head>
+  <title> Crea tu propio diagrama de red </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="{{url_for('static', filename='../static/styles/diagrama.css') }}" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dispositivos en stock</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+          <a href="{{ url_for('switches.verSwitches') }}">Switches</a>
+          <a href="{{ url_for('hubs.verHubs') }}">Hubs</a>
+          <a href="{{ url_for('fortinets.verFortinets') }}">Fortinets</a>
+        </div>
+      </li>
+      <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+    </ul>
+  </nav>
+  <br/>
+<div class="row">
+  <div class="column">
+  <div class="form-container">
+    <h2 style="text-align: center;"> Agrega el dispositivo de red </h2>
+    <div class="form-group">
+      <label for="deviceName" class="label_diagrama"> Nombre del dispositivo: </label>
+      <input type="text" id="deviceName" name="deviceName" class="label_diagrama">
+    </div>
+    <div class="form-group">
+      <label for="deviceType" class="dispositivo"> Tipo de dispositivo: </label>
+      <select id="deviceType" name="deviceType" class="select_diagrama">
+        <option value="Servidor"> Servidor </option>
+        <option value="Router"> Router </option>
+        <option value="Switch"> Switch </option>
+        <option value="Hub"> Hub </option>
+        <option value="Fortinet"> Fortinet </option>
+        <option value="PC"> PC </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="connectedTo" class="dispositivo"> Conectado a (Nombre del Dispositivo):</label>
+      <input type="text" id="connectedTo" name="connectedTo" class="input_diagrama">
+    </div>
+    <div class="action-buttons">
+   <center> <button type="button" onclick="addDevice()" class="button_diagrama"> Agregar Dispositivo </button> </center>
+    
+  </div>    
+  </div>
+  </div>
+  <div class="column">
+    <div class="form-container">
+    <h2 style="text-align: center;"> Edita y borra el dispositivo </h2>
+    <div class="form-group">
+      <label for="selectDevice" class="dispositivo"> Selecciona un dispositivo para editar o borrar:</label>
+      <select id="selectDevice" class="select_diagrama">
+          <option value="">Selecciona un dispositivo</option>
+      </select>
+  </div>
+  <div class="form-group">
+      <label for="newDeviceName" class="label_diagrama"> Edita el nuevo nombre del dispositivo: </label>
+      <input type="text" id="newDeviceName" name="newDeviceName" class="label_diagrama">
+  </div>
+  <div class="form-group">
+      <label for="newDeviceType" class="dispositivo"> Edita el nuevo tipo de dispositivo: </label>
+      <select id="newDeviceType" name="newDeviceType" class="select_diagrama">
+          <option value="Servidor"> Servidor </option>
+          <option value="Router"> Router </option>
+          <option value="Switch"> Switch </option>
+          <option value="Hub"> Hub </option>
+          <option value="Fortinet"> Fortinet </option>
+          <option value="PC"> PC </option>
+      </select>
+  </div>
+ <div class="action-buttons">
+ <button type="button" onclick="editDevice()" class="button_diagrama"> Editar Dispositivo </button>
+ <button type="button" onclick="deleteDevice()" class="button_diagrama"> Borrar Dispositivo </button>
+ </div>
+  </div>
+</div>
+<div class="column">
+  <div class="form-container">
+  <h3> <center> ¿Cómo funciona? </center> </h3>
+    <h4> Agregar el dispositivo de red</h4>
+    <p> En el nombre de dispostivo pones un nombre cualquiera. </p>
+    <p> Tipo de dispositivo: eliges que tipo de dispositivo que es.  </p>
+    <p> Conectado a (el primer dispositivo que insertas no pongas nada), puedes elegir donde a que dispositivo va conectado.</p>
+    <p> Y pinchas en Agregar dispositivo. </p>
+    
+    <h4> Editar el dispositivo</h4>
+    <p> Selecciona un dispositivo para editar o borrar: seleccionas el dispositivo que has agregado al grafo.</p>
+    <p> Edita el nuevo nombre del dispositivo: pones el nuevo nombre para el dispositivo. </p>
+    <p> Edita el nuevo tipo de dispositivo: puedes poner el nuevo tipo de dispositivo que va a ser </p>
+    <p> Y pinchas en editar dispositivo </p>
+    
+    <h4> Borrar el dispositivo </h4>
+    <p> Selecciona un dispositivo para editar o borrar: seleccionas el dispositivo que has agregado al grafo. </p>
+    <p> Y pinchas en Borrar dispositivo.</p>
+  </div>
+</div>
+  </div> 
+  <div id="network"></div>
+  
+  <script src="../static/styles/js/d3.v7.min.js"></script>
+  <script src="../static/styles/script.js"></script>
+</body>
+  {% endblock %}
+  
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,41 @@
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid black;
+    border-radius: 5px;
+}
+.form-group {
+    margin-bottom: 5px;
+}
+.dispositivo {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label_diagrama , .select_diagrama , .input_diagrama {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.button_diagrama {
+    padding: 10px 20px;
+    background-color: #F3DFD2;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.button_diagrama:hover {
+    background-color: #F3C7A9;
+}
+
+#network {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}

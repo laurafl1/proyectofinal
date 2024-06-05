@@ -1,0 +1,11 @@
+.titulo {
+    text-align: center;
+}
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+fieldset {
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %} Fortinet {% endblock %}
+
+{% block content %}
+<head>
+    <title> Fortinets </title>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href="{{url_for('static', filename='../static/styles/tablas.css') }}" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+            <li class="dropdown">
+              <a class="dropbtn">Dispositivos en stock</a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+                <a href="{{ url_for('switches.verSwitches') }}">Switches</a>
+                <a href="{{ url_for('hubs.verHubs') }}">Hubs</a>
+                <a href="{{ url_for('fortinets.verFortinets') }}">Fortinets</a>
+              </div>
+            </li>
+            <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+          </ul>
+    </nav>
+    <table border="1" style="width: 100%;">
+        <tr>
+            <td class="columna"> Id </td>
+            <td class="columna"> Nombre </td>
+            <td class="columna"> VPN cantidad de túneles </td>
+            <td class="columna"> Ethernet LAN RJ45 cantidad de puertos </td>
+            <td class="columna"> Números de puertos de la consola </td>
+            <td class="columna"> Precio </td>
+        </tr>
+        {% for fortinet in fortinets %}
+
+        <tr>
+            <td> {{fortinet.Id}}</td>
+            <td> {{fortinet.Nombre}}</td>
+            <td> {{fortinet.Vpn_cantidad_de_túneles}}</td>
+            <td> {{fortinet.Ethernet_LAN_RJ45_cantidad_de_puertos}}</td>
+            <td> {{fortinet.Números_de_puertos_de_la_consola}}</td>
+            <td> {{fortinet.Precio}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+<br/>
+</body>
+
+{% endblock %}

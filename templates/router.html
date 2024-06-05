@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %} Router {% endblock %}
+
+{% block content %}
+<head>
+    <title> Routers </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="{{url_for('static', filename='../static/styles/tablas.css') }}" />
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+            <li class="dropdown">
+              <a class="dropbtn">Dispositivos en stock</a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+                <a href="{{ url_for('switches.verSwitches') }}">Switches</a>
+                <a href="{{ url_for('hubs.verHubs') }}">Hubs</a>
+                <a href="{{ url_for('fortinets.verFortinets') }}">Fortinets</a>
+              </div>
+            </li>
+            <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+          </ul>
+    </nav>
+    <table border="1" style="width: 100%;">
+        <tr>
+            <td class="columna"> Id </td>
+            <td class="columna"> Nombre </td>
+            <td class="columna"> Wifi_Estándares </td>
+            <td class="columna"> Frecuencia_del_procesador </td>
+            <td class="columna"> Estándar_Wifi </td>
+            <td class="columna"> Tipo_de_interfaz </td>
+            <td class="columna"> Procesador_incorporado </td>
+            <td class="columna"> Seguridad_inalámbrica </td>
+            <td class="columna"> Precio </td>
+        </tr>
+        {% for router in routers %}
+
+        <tr>
+            <td> {{router.Id}}</td>
+            <td> {{router.Nombre}}</td>
+            <td> {{router.Wifi_Estándares}}</td>
+            <td> {{router.Frecuencia_del_procesador}}</td>
+            <td> {{router.Estándar_Wifi}}</td>
+            <td> {{router.Tipo_de_interfaz}}</td>
+            <td> {{router.Procesador_incorporado}}</td>
+            <td> {{router.Seguridad_inalámbrica}}</td>
+            <td> {{router.Precio}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+<br/>
+</body>
+
+{% endblock %}

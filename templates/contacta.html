@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<head>
+  <title> Contacta con nosotros </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="{{url_for('static', filename='../static/styles/contacta.css') }}" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dispositivos en stock</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+          <a href="{{ url_for('switches.verSwitches') }}">Switches</a>
+          <a href="{{ url_for('hubs.verHubs') }}">Hubs</a>
+          <a href="{{ url_for('fortinets.verFortinets') }}">Fortinets</a>
+        </div>
+      </li>
+      <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+    </ul>
+  </nav>
+  <h1 class="titulo"> ¡CONTACTA CON NOSOTROS! </h1>
+  <form>
+    <fieldset>
+        <legend> Información personal </legend>
+        <label> Nombre:  </label>
+        <input type="text" name="name" />
+        <br>
+        <br>
+        <label> Correo electrónico: </label>
+        <input type="email" name="email" />
+        <br>
+        <br>
+        <label> Comentarios: </label>
+        <textarea name="comment" rows="10" cols="50"> </textarea>
+        <br>
+        <br>
+        <input type="submit" value="Enviar" />    
+    </fieldset>
+</form>
+</body>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

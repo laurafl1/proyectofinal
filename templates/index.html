@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<head>
+  <title> Página principal </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li> <a href="{{ url_for('routes.index') }}">Inicio</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Dispositivos en stock</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('routes.verRouters') }}">Routers</a>
+          <a href="{{ url_for('switches.verSwitches') }}"> Switches </a>
+          <a href="{{ url_for('hubs.verHubs') }}"> Hubs </a>
+          <a href="{{ url_for('fortinets.verFortinets') }}"> Fortinets </a>
+        </div>
+      </li>
+      <li style="float: right"> <a class="active" href="{{ url_for('routes.vercontacta')}}"> ¡CONTACTA CON NOSOTROS! </a> </li> 
+    </ul>
+  </nav>
+  <br>
+  <br>
+  <div class="row">
+    <div class="column" style="border: 1px solid black;">
+  <h3> <center> <u> ¿Quiénes somos? </u> </center> </h3>
+  <p> Somos un equipo apasionado de expertos en tecnología dedicado a optimizar
+   y mejorar la infraestructura de redes de nuestros clientes. Con años de experiencia
+   en la industria, nos especializamos en el diseño, implementación y mantenimiento de
+   diagramas de red que aseguran una conectividad eficiente, segura y de alto rendimiento. </p>
+    </div>
+    <div class="column" style="border: 1px solid black;">
+  <h3> <center> <u> Nuestra misión </u> </center> </h3>
+  <p> Nuestra misión es proporcionar soluciones de redes que impulsen la productividad y 
+    el crecimiento de las empresas, utilizando de redes las mejores prácitcas y tecnologías inovadoras.
+    Entendemos de cada negocio es único, por lo que nos esforzamos en ofrecer servicios personalizados
+    que se adapten a las necesidades específicas de cada cliente.
+  </p>
+    </div>
+    <div class="column" style="border: 1px solid black;">
+      <h3> <center> <u> Equipo </u> </center> </h3>
+      <p> Contamos con un equipo de profesionales altamente capacitados y certificados, comprometidos
+        con la excelencia y la satisfacción del cliente. Desde pequeñas empresas hasta grandes corporaciones, hemos
+        ayudado a diversas organizaciones a optimizar sus redes y a alcanzar sus objetivos tecnológicos.
+      </p>
+      <br>
+    </div>
+  </div>
+  <p> </p>
+  <h2 style="text-align: center;"> <u>La importancia de las redes informáticas </u> </h2>
+  <div class="row">
+    <div class="column">
+      <p> <b> Facilita la comunicación: </b> desde correos electrónicos hasta videoconferencias, las redes nos 
+         mantiene conectados.
+      </p>
+      <center> <img src="{{url_for('static', filename='images/conectividad.jpg') }}" width="400"> </center>
+    </div>
+
+    <div class="column">
+      <p> <b> Comparten recursos: </b> desde archivos hasta impresoras, las redes permiten compartir recursos de
+          manera eficiente.
+      </p>
+      <center> <img src="{{url_for('static', filename='images/redes.jpg') }}" width="400"> </center>
+    </div>
+
+    <div class="column">
+      <p> <b> Impulsan la innovación: </b> la evolución de las redes ha cartalizado el desarrollo tecnológico en 
+          todas las tareas.
+      </p>
+      <center> <img src="{{url_for('static', filename='images/pymes.jpg') }}" width="400"> </center>
+    </div>
+</div>
+<button> <a href= "{{ url_for('routes.verdiagramared') }}" class="link_diagrama"> ¡Crea tu diagrama de red gratuito! </a> </button>
+<center> <h2 style="text-align: center;"> <u> Tipos de topologías  </u></h2> </center>
+<table> 
+  <tr>
+    <td> <center><img src="{{url_for('static', filename='images/topología anillo.png') }}" width="400"> Topología anillo </center></td>
+    <td> <center><img src="{{url_for('static', filename='images/topología bus.png') }}" width="400"> Topología bus </center></td>
+    <td> <center><img src="{{url_for('static', filename='images/topología malla.png') }}" width="400"> Topología malla </center></td>
+  </tr>
+  <tr>
+    <td> <center><img src="{{url_for('static', filename='images/topología punto a punto.png') }}" width="400"> Topología punto a punto </center></td>
+    <td> <center><img src="{{url_for('static', filename='images/topología estrella.png') }}" width="400"> Topología estrella </center></td>
+    <td> <center><img src="{{url_for('static', filename='images/topología mixta.png') }}" width="400"> Topología mixta </center></td>
+  </tr>
+</table>
+
+
+</body>
+
+{% endblock %}
+  
+{% block footer %}
+{% endblock %}

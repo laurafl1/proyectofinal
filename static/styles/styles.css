@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+.font1 {
+  font-family: "Briem Hand", cursive;
+  font-optical-sizing: auto;
+  font-size: normal;
+  font-weight: 10;
+  text-align: center;
+}
+body {
+  background-image: url(../images/fondo.jpg);
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    background: linear-gradient(to right, #F3DFD2, #f1ece9);
+    border: solid black
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a, .dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: #F3DFD2;
+  }
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F3DFD2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #F3DFD2;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #f1ece9;
+  }
+  .active {
+    background-color: #f1ece9;
+  }
+
+  .link_diagrama {
+    border: none;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #F8F898;
+    color: black;
+    border: 2px solid #F8F898;
+
+  }
+  a:hover, a:active {
+    background-color: #F8F898;
+  }
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 15px
+  }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 50px 0;
+    font-size: 18px;
+    text-align: center;
+    border-style: ridge;
+}
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
